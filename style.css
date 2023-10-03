@@ -23,7 +23,7 @@ body {
   z-index: 10;
   background-color: #202124;
   width: 500px;
-  height: 600px;
+  height: 700px;
   max-height: 80%;
   max-width: 80%;
   text-align: center;
@@ -156,4 +156,13 @@ h1 {
 
 .title1 {
   font-size: 3rem;
+}
+
+label {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.read {
+  height: 24px;
 }
