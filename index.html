@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Add a new book</h1>
+      <button class="addBook">New book</button>
+      <div class="books-grid" id="booksGrid">
+        <div class="bookCard">
+          <p>Title: The Godfather</p>
+          <p>Author: Mario Puzo</p>
+          <p>Pages: 477</p>
+          <div class="btnGroup">
+            <button class="readBook">Not read</button>
+            <button class="removeBook">Remove</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <section class="modal" id="modal">
+      <h1 class="title1">Add new book</h1>
+      <form action="" class="submitForm">
+        <input type="text" class="title" placeholder="Title" required />
+        <input type="text" class="author" placeholder="Author" required />
+        <input type="number" class="pages" placeholder="Pages" required />
+        <button class="addBookButton">Submit book</button>
+      </form>
+    </section>
+    <div id="overlay"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
