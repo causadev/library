@@ -140,7 +140,7 @@ input {
   border-radius: 8px;
 }
 
-.readBook.readed {
+.readBook.read {
   background-color: #4caf50;
 }
 
@@ -161,8 +161,4 @@ h1 {
 label {
   font-size: 1.4rem;
   color: #fff;
-}
-
-.read {
-  height: 24px;
 }

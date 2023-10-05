@@ -10,29 +10,39 @@
     <main>
       <h1>Add a new book</h1>
       <button class="addBook">New book</button>
-      <div class="books-grid" id="booksGrid">
-        <div class="bookCard">
-          <p>Title: The Godfather</p>
-          <p>Author: Mario Puzo</p>
-          <p>Pages: 477</p>
-          <div class="btnGroup">
-            <button class="readBook">Not read</button>
-            <button class="removeBook">Remove</button>
-          </div>
-        </div>
-      </div>
+      <div class="books-grid" id="booksGrid"></div>
     </main>
     <section class="modal" id="modal">
       <h1 class="title1">Add new book</h1>
       <form action="" id="submitForm" name="submitForm">
-        <input type="text" class="title" id="titleInput" name="title" placeholder="Title" required />
-        <input type="text" class="author" id="authorInput" name="author" placeholder="Author" required />
-        <input type="number" class="pages" id="pagesInput" name="pages" placeholder="Pages" required />
-        <label for="readCheckbox">Do you already read this?</label>
+        <input
+          type="text"
+          class="title"
+          id="titleInput"
+          name="title"
+          placeholder="Title"
+          required
+        />
+        <input
+          type="text"
+          class="author"
+          id="authorInput"
+          name="author"
+          placeholder="Author"
+          required
+        />
+        <input
+          type="number"
+          class="pages"
+          id="pagesInput"
+          name="pages"
+          placeholder="Pages"
+          required
+        />
+        <label for="readCheckbox">Did you already read this?</label>
         <input type="checkbox" class="read" id="readCheckbox" name="read" />
         <button class="addBookButton">Submit book</button>
-    </form>
-    
+      </form>
     </section>
     <div id="overlay"></div>
     <script src="index.js"></script>

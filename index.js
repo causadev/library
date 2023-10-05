@@ -1,42 +1,8 @@
 const addBook = document.querySelector(".addBook");
 const modal = document.querySelector("#modal");
 const overlay = document.querySelector("#overlay");
-const form = document.querySelector("#submitForm");
-const bookTitle = document.querySelector(".title");
-const bookAuthor = document.querySelector(".author");
-const bookPages = document.querySelector(".pages");
-const bookRead = document.querySelector(".read");
-const submitBook = document.querySelector(".addBookButton");
-const readBook = document.querySelector(".readBook");
-const removeBook = document.querySelector(".removeBook");
-const bookCard = document.querySelector(".bookCard");
-addBook.addEventListener("click", openModal);
-overlay.addEventListener("click", closeModal);
-form.addEventListener("submit", addBookToLibrary);
-
-removeBook.addEventListener("click", () => {
-  bookCard.remove();
-});
-
-readBook.addEventListener("click", (e) => {
-  if (e.target.textContent === "Not read") {
-    readBook.textContent = "Read";
-    readBook.classList.add("readed");
-  } else {
-    readBook.textContent = "Not read";
-    readBook.classList.remove("readed");
-  }
-});
-
-function openModal() {
-  modal.classList.add("active");
-  overlay.classList.add("active");
-}
-
-function closeModal() {
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-}
+const submit = document.querySelector("#submitForm");
+submit.addEventListener("submit", addBookToLibrary);
 
 const myLibrary = [];
 
@@ -48,30 +14,24 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary(e) {
-  // do stuff here
-  e.preventDefault();
-  title = bookTitle.value;
-  author = bookAuthor.value;
-  pages = bookPages.value;
-  read = bookRead.checked;
-  const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
-  console.log(book);
+function addBookToLibrary(event) {
+  event.preventDefault();
+  const title = document.querySelector(".title").value;
+  const author = document.querySelector(".author").value;
+  const pages = document.querySelector(".pages").value;
+  const read = document.querySelector(".read").checked;
+
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  console.log(newBook);
+
   clearInputCloseModal();
   displayBook();
 }
 
-function clearInputCloseModal() {
-  bookTitle.value = "";
-  bookAuthor.value = "";
-  bookPages.value = "";
-  bookRead.value = "";
-  closeModal();
-}
-
-function displayBook(book) {
+function displayBook() {
   const booksGrid = document.querySelector("#booksGrid");
+  booksGrid.innerHTML = "";
   myLibrary.forEach((book) => {
     const bookCard = document.createElement("div");
     const titleP = document.createElement("p");
@@ -86,7 +46,6 @@ function displayBook(book) {
     readBook.textContent = "Not read";
     removeBook.textContent = "Remove";
 
-    bookCard.dataset.indexNumber;
     bookCard.classList.add("bookCard");
     readBook.classList.add("readBook");
     removeBook.classList.add("removeBook");
@@ -99,27 +58,49 @@ function displayBook(book) {
     booksGrid.appendChild(bookCard);
 
     removeBook.addEventListener("click", () => {
+      myLibrary.pop(bookCard);
       bookCard.remove();
     });
 
     readBook.addEventListener("click", (e) => {
       if (e.target.textContent === "Not read") {
         readBook.textContent = "Read";
-        readBook.classList.add("readed");
+        readBook.classList.add("read");
+        book.read = true;
       } else {
         readBook.textContent = "Not read";
-        readBook.classList.remove("readed");
+        readBook.classList.remove("read");
+        book.read = false;
       }
     });
 
     if (book.read) {
       readBook.textContent = "Read";
-      readBook.classList.add("readed");
+      readBook.classList.add("read");
     } else {
       readBook.textContent = "Not read";
-      readBook.classList.remove("readed");
+      readBook.classList.remove("read");
     }
-
-    myLibrary.pop(book);
   });
 }
+
+function openModal() {
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal() {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+}
+
+function clearInputCloseModal() {
+  document.querySelector(".title").value = "";
+  document.querySelector(".author").value = "";
+  document.querySelector(".pages").value = "";
+  document.querySelector(".read").checked = false;
+  closeModal();
+}
+
+addBook.addEventListener("click", openModal);
+overlay.addEventListener("click", closeModal);
