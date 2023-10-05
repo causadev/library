@@ -32,7 +32,7 @@ function addBookToLibrary(event) {
 function displayBook() {
   const booksGrid = document.querySelector("#booksGrid");
   booksGrid.innerHTML = "";
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     const bookCard = document.createElement("div");
     const titleP = document.createElement("p");
     const authorP = document.createElement("p");
@@ -57,9 +57,12 @@ function displayBook() {
     bookCard.appendChild(removeBook);
     booksGrid.appendChild(bookCard);
 
+    removeBook.dataset.bookIndex = index;
     removeBook.addEventListener("click", () => {
-      myLibrary.pop(bookCard);
-      bookCard.remove();
+      const bookIndex = removeBook.dataset.bookIndex;
+      myLibrary.splice(bookIndex, 1);
+      console.log(myLibrary);
+      displayBook();
     });
 
     readBook.addEventListener("click", (e) => {
