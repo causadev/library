@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Library</title>
-  </head>
-  <body>
-    <main>
-      <h1>Add a new book</h1>
-      <button class="addBook">New book</button>
-      <div class="books-grid" id="booksGrid"></div>
-    </main>
-    <section class="modal" id="modal">
-      <h1 class="title1">Add new book</h1>
-      <form action="" id="submitForm" name="submitForm">
-        <input
-          type="text"
-          class="title"
-          id="titleInput"
-          name="title"
-          placeholder="Title"
-          required
-        />
-        <input
-          type="text"
-          class="author"
-          id="authorInput"
-          name="author"
-          placeholder="Author"
-          required
-        />
-        <input
-          type="number"
-          class="pages"
-          id="pagesInput"
-          name="pages"
-          placeholder="Pages"
-          required
-        />
-        <label for="readCheckbox">Did you already read this?</label>
-        <input type="checkbox" class="readCheck" id="readCheckbox" name="read" />
-        <button class="addBookButton">Submit book</button>
-      </form>
-    </section>
-    <div id="overlay"></div>
-    <script src="index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Library</title>
+</head>
+
+<body>
+  <main>
+    <h1 class="title">Library</h1>
+    <button id="addBook">Add book</button>
+    <div class="books-grid" id="books-grid"></div>
+  </main>
+  <section class="modal" id="modal">
+    <form action="">
+      <h1 class="modalTitle">Add a new book</h1>
+      <input id="title" type="text" required placeholder="Title">
+      <input id="author" type="text" required placeholder="Author">
+      <input id="pages" type="number" required placeholder="Pages">
+      <fieldset>
+        <label for="read">Did you already read this?</label>
+        <input type="checkbox" name="read" id="read">
+      </fieldset>
+      <button id="submit">Submit</button>
+    </form>
+  </section>
+  <div id="overlay"></div>
+
+  <footer>
+    <p>Simple books library to add your books :)</p>
+    <p id="git">Follow me on github <a href="https://github.com/causadev" target="_blank">@causadev</a></p>
+  </footer>
+
+
+  <script src="index.js"></script>
+</body>
+
 </html>

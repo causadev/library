@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background-color: #202124;
+  background-color: #121212;
 }
 
 .modal {
@@ -18,10 +18,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in;
   border-radius: 10px;
   z-index: 10;
-  background-color: #202124;
+  background-color: #121212;
   width: 500px;
   height: 700px;
   max-height: 80%;
@@ -51,22 +51,14 @@ body {
   pointer-events: all;
 }
 
-h1 {
-  font-size: 2rem;
+.title {
+  color: #fff;
+  font-size: 4rem;
 }
 
-input {
-  font-size: 1.2rem;
-  width: 80%;
-  padding: 10px;
-  margin: 34px;
-  border-radius: 8px;
-  border: none;
-}
-
-.addBookButton {
-  background-color: #4caf50;
-  color: white;
+#addBook {
+  background-color: #40B5AD;
+  color: #fff;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -76,30 +68,81 @@ input {
   cursor: pointer;
   border: none;
   border-radius: 8px;
+  transition: all 0.1s;
+  font-weight: 600;
+  box-shadow: 0 6px #999;
 }
 
-.addBookButton:hover {
-  background-color: #fb607f;
-  transition: all 0.2s linear;
+
+#addBook:hover {
+  background-color: #43c4bb;
 }
 
-.addBook {
-  background-color: #4caf50;
-  color: white;
+#addBook:active {
+  background-color: #43c4bb;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#submit {
+  background-color: #40B5AD;
+  color: #fff;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 1.4rem;
-  margin: 40px;
+  font-weight: 600;
+  margin: 12px;
   cursor: pointer;
   border: none;
   border-radius: 8px;
+  box-shadow: 0 6px #999;
 }
 
-.addBook:hover {
-  background-color: #fb607f;
-  transition: all 0.2s linear;
+
+#submit:hover {
+  background-color: #43c4bb;
+}
+
+#submit:active {
+  background-color: #43c4bb;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal {
+  color: #fff;
+}
+
+fieldset {
+  border: none;
+}
+
+.modalTitle {
+  font-size: 3rem;
+}
+
+
+input[type=text],
+input[type=number] {
+  font-size: 1.2rem;
+  width: 80%;
+  padding: 10px;
+  margin: 34px;
+  border-radius: 8px;
+  border: none;
+}
+
+label {
+  font-size: 1.2rem;
 }
 
 .books-grid {
@@ -111,23 +154,32 @@ input {
 }
 
 .bookCard {
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  background-color: #0d1117;
+  border: 1px solid #ccc;
   padding: 20px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 350px;
   border-radius: 8px;
+  font-weight: 600;
+  color: #fff;
 }
 
-.btnGroup {
-  display: flex;
-  flex-direction: column;
+
+.shadow {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
+
+
+p {
+  font-size: 1.3rem;
+}
+
 .readBook,
 .removeBook {
-  background-color: #fb607f;
-  color: white;
+  background-color: #800026;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -138,32 +190,61 @@ input {
   cursor: pointer;
   border: none;
   border-radius: 8px;
+  color: #fff;
+}
+
+.readBook:hover {
+  border: 1px solid #ccc;
+}
+
+.readBook:active {
+  transform: translateY(3px);
+}
+
+.removeBook:hover {
+  border: 1px solid #ccc;
+}
+
+.removeBook:active {
+  transform: translateY(3px);
 }
 
 .readBook.read {
-  background-color: #4caf50;
+  background-color: #06a53b;
 }
 
-p {
-  font-size: 1.3rem;
+.readBook.read:hover {
+  border: 1px solid #ccc;
 }
 
-h1 {
-  font-size: 3.4rem;
-  color: #fff;
+.readBook.read:active {
+  transform: translateY(3px);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
-}
-
-.title1 {
-  font-size: 3rem;
-}
-
-label {
-  font-size: 1.4rem;
+  padding: 10px;
+  /* Optional: Add padding to the footer */
   color: #fff;
 }
 
 
-.readCheck {
-  height: 24px;
+a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #ccc;
+  transition: all 0.1s ease-in;
+}
+
+a:hover {
+  text-decoration: none;
+  font-size: 15px;
+  color: #fb607f;
+}
+
+#git {
+  font-size: 0.8rem;
 }
