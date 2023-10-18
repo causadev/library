@@ -11,7 +11,7 @@ function Book(title, author, pages, isRead) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = isRead;
+  this.isRead = isRead;
 }
 
 // Event listener for the form submission when adding a book
@@ -76,24 +76,18 @@ function displayBook() {
 
     // Event listener for the "Read" button to toggle the book's read status
     readBtn.addEventListener("click", () => {
-      if (readBtn.textContent === "Not read") {
-        readBtn.textContent = "Read";
-        readBtn.classList.add("read");
-        newBook.isRead = true;
-      } else {
-        readBtn.textContent = "Not read";
-        readBtn.classList.remove("read");
-        newBook.isRead = false;
-      }
+      readBtn.textContent =
+        readBtn.textContent === "Not read" ? "Read" : "Not read";
+      readBtn.classList.toggle("read");
+      newBook.isRead = !newBook.isRead;
     });
 
     // Set the initial state of the "Read" button based on the book's read status
-    if (newBook.read) {
+    if (newBook.isRead) {
       readBtn.textContent = "Read";
-      readBtn.classList.add("read");
+      readBtn.classList.toggle("read");
     } else {
       readBtn.textContent = "Not read";
-      readBtn.classList.remove("read");
     }
 
     // Event listener for the "Remove" button to delete a book
@@ -105,8 +99,6 @@ function displayBook() {
         // Remove the book from the library array and update the display
         myLibrary.splice(index, 1);
         displayBook();
-      } else {
-        alert("Cancel");
       }
     });
   });

@@ -144,6 +144,7 @@ label {
   gap: 12px;
   margin-left: 15vw;
   margin-right: 21vw;
+  margin-top: 2vw;
 }
 
 .bookCard {
@@ -191,14 +192,7 @@ p {
   background-color: #06a53b;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
-  color: #fff;
-}
+
 
 a {
   text-decoration: none;
@@ -214,5 +208,12 @@ a:hover {
 }
 
 #git {
-  font-size: 0.8rem;
+  font-size: 1rem;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
 }
