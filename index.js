@@ -44,35 +44,19 @@ function displayBook() {
 
   // Loop through the library array and create a card for each book
   myLibrary.forEach((newBook, index) => {
-    const card = document.createElement("div");
-    card.classList.add("bookCard");
+    const bookCard = `<div class="bookCard">
+      <p>Title: ${newBook.title}</p>
+      <P>Author: ${newBook.author}</P>
+      <p>Pages: ${newBook.pages}</p>
+      <button class="readBook">Not read</button>
+      <button class="removeBook">Remove</button>
+    </div>`;
 
-    const title = document.createElement("p");
-    title.textContent = `Title: ${newBook.title}`;
+    booksGrid.insertAdjacentHTML("beforeend", bookCard);
 
-    const author = document.createElement("p");
-    author.textContent = `Author: ${newBook.author}`;
-
-    const pages = document.createElement("p");
-    pages.textContent = `Pages: ${newBook.pages}`;
-
-    const readBtn = document.createElement("button");
-    readBtn.textContent = "Not read";
-    readBtn.classList.add("readBook");
-
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    removeBtn.classList.add("removeBook");
-
-    // Append elements to the card
-    card.append(title);
-    card.append(author);
-    card.append(pages);
-    card.append(readBtn);
-    card.append(removeBtn);
-
-    // Append the card to the booksGrid
-    booksGrid.append(card);
+    const card = booksGrid.lastChild;
+    const readBtn = card.querySelector(".readBook");
+    const removeBtn = card.querySelector(".removeBook");
 
     // Event listener for the "Read" button to toggle the book's read status
     readBtn.addEventListener("click", () => {
