@@ -7,12 +7,15 @@ const booksGrid = document.querySelector("#books-grid"); // Container for displa
 const myLibrary = []; // An array to store book objects
 
 // Constructor function for creating Book objects
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 }
+
 
 // Event listener for the form submission when adding a book
 form.addEventListener("submit", (e) => {
